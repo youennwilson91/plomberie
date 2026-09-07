@@ -67,8 +67,8 @@ points bloquants :
    `public/robots.txt` et `public/sitemap.xml` portent le même domaine, à
    corriger en même temps.
 4. **Horaires** — lus sur le panneau de la vitrine (lun–jeu 8h–12h / 14h–17h,
-   vendredi jusqu'à 16h, samedi matin sur RDV). La photo n'est pas nette : à
-   faire confirmer.
+   vendredi jusqu'à 16h) puis corrigés par le client : fermé le week-end, le
+   samedi matin sur RDV du panneau n'a plus cours.
 5. **Qualifications** — les macarons de la vitrine (Qualibat RGE, RGE, PG,
    GRDF, Gaz Vert) sont repris tels quels ; libellés et numéros exacts à
    reprendre des attestations.

@@ -33,15 +33,14 @@ export const LIEN_ITINERAIRE =
   "https://www.google.com/maps/dir/?api=1&destination=" + encodeURIComponent(ADRESSE_COMPLETE);
 
 /**
- * Horaires relevés sur le panneau « HORAIRES D'OUVERTURE » de la vitrine.
- * [À CONFIRMER] : la photo est lisible mais pas nette, faire valider les
- * heures par le client.
+ * Horaires relevés sur le panneau « HORAIRES D'OUVERTURE » de la vitrine, puis
+ * corrigés par le client : l'agence est fermée le week-end (le panneau
+ * mentionne un samedi matin sur RDV, ce n'est plus le cas).
  */
 export const HORAIRES: ReadonlyArray<{ jours: string; heures: string }> = [
   { jours: "Lundi – Jeudi", heures: "8h00 – 12h00 · 14h00 – 17h00" },
   { jours: "Vendredi", heures: "8h00 – 12h00 · 14h00 – 16h00" },
-  { jours: "Samedi matin", heures: "Sur rendez-vous" },
-  { jours: "Dimanche", heures: "Fermé" },
+  { jours: "Samedi – Dimanche", heures: "Fermé" },
 ];
 
 /** Communes citées dans la zone d'intervention. [À CONFIRMER] avec le client. */
