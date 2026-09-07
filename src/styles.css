@@ -1,0 +1,320 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Polices auto-hebergees (Inter, Manrope, Sora) : evite les requetes
+ * bloquantes vers fonts.googleapis.com/fonts.gstatic.com. Seuls les
+ * sous-ensembles latin + latin-ext sont inclus (site francophone uniquement).
+ */
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url("./assets/fonts/inter-latin.woff2") format("woff2");
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url("./assets/fonts/inter-latin-ext.woff2") format("woff2");
+  unicode-range:
+    U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329,
+    U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F,
+    U+A720-A7FF;
+}
+@font-face {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+  src: url("./assets/fonts/manrope-latin.woff2") format("woff2");
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+  src: url("./assets/fonts/manrope-latin-ext.woff2") format("woff2");
+  unicode-range:
+    U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329,
+    U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F,
+    U+A720-A7FF;
+}
+@font-face {
+  font-family: "Sora";
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+  src: url("./assets/fonts/sora-latin.woff2") format("woff2");
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Sora";
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+  src: url("./assets/fonts/sora-latin-ext.woff2") format("woff2");
+  unicode-range:
+    U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329,
+    U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F,
+    U+A720-A7FF;
+}
+
+/*
+ * Design system definition.
+ *
+ * The @theme inline block maps CSS custom properties to Tailwind utility
+ * classes (e.g. --color-primary -> bg-primary, text-primary).
+ *
+ * The :root and .dark blocks define the actual color values using oklch.
+ * All colors MUST use oklch format.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  /* Jetons de marque tires de l'enseigne A.P.S : bleu nuit, bleu enseigne, jaune. */
+  --color-brand: var(--brand);
+  --color-brand-vif: var(--brand-vif);
+  --color-accent-jaune: var(--accent-jaune);
+  --color-surface: var(--surface);
+  --color-muted-text: var(--muted-text);
+  /* Trois familles, trois voix : Sora = titres, Manrope = sous-titres, Inter = corps. */
+  --font-display: "Sora", "Inter", system-ui, sans-serif;
+  --font-subtitle: "Manrope", "Inter", system-ui, sans-serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, monospace;
+}
+
+:root {
+  --radius: 0.625rem;
+  /* Palette relevee sur la devanture : bleu nuit du bandeau, bleu enseigne,
+     jaune du logo et de la vague, blanc casse. */
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.3 0.075 258);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.3 0.075 258);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.3 0.075 258);
+  --primary: oklch(0.32 0.09 258);
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.965 0.008 250);
+  --secondary-foreground: oklch(0.3 0.075 258);
+  --muted: oklch(0.965 0.008 250);
+  --muted-foreground: oklch(0.5 0.04 258);
+  --accent: oklch(0.85 0.16 90);
+  --accent-foreground: oklch(0.28 0.07 258);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.984 0.003 247.858);
+  --border: oklch(0.3 0.075 258 / 14%);
+  --input: oklch(0.3 0.075 258 / 14%);
+  --ring: oklch(0.85 0.16 90);
+  --chart-1: oklch(0.85 0.16 90);
+  --chart-2: oklch(0.52 0.15 252);
+  --chart-3: oklch(0.88 0.02 250);
+  --chart-4: oklch(0.7 0.13 75);
+  --chart-5: oklch(0.32 0.09 258);
+  --sidebar: oklch(0.965 0.008 250);
+  --sidebar-foreground: oklch(0.3 0.075 258);
+  --sidebar-primary: oklch(0.32 0.09 258);
+  --sidebar-primary-foreground: oklch(1 0 0);
+  --sidebar-accent: oklch(0.965 0.008 250);
+  --sidebar-accent-foreground: oklch(0.3 0.075 258);
+  --sidebar-border: oklch(0.3 0.075 258 / 14%);
+  --sidebar-ring: oklch(0.85 0.16 90);
+  /* Jetons semantiques supplementaires */
+  --brand: oklch(0.32 0.09 258);
+  /* Bleu de l'enseigne, plus lumineux que le bleu nuit : degrades et aplats. */
+  --brand-vif: oklch(0.52 0.15 252);
+  --accent-jaune: oklch(0.85 0.16 90);
+  --surface: oklch(0.965 0.008 250);
+  --muted-text: oklch(0.5 0.04 258);
+}
+
+.dark {
+  --background: oklch(0.24 0.055 258);
+  --foreground: oklch(0.96 0.01 95);
+  --card: oklch(0.29 0.06 258);
+  --card-foreground: oklch(0.96 0.01 95);
+  --popover: oklch(0.29 0.06 258);
+  --popover-foreground: oklch(0.96 0.01 95);
+  --primary: oklch(0.96 0.01 95);
+  --primary-foreground: oklch(0.24 0.055 258);
+  --secondary: oklch(0.34 0.06 258);
+  --secondary-foreground: oklch(0.96 0.01 95);
+  --muted: oklch(0.34 0.06 258);
+  --muted-foreground: oklch(0.76 0.02 95);
+  --accent: oklch(0.85 0.16 90);
+  --accent-foreground: oklch(0.24 0.055 258);
+  --destructive: oklch(0.704 0.191 22.216);
+  --destructive-foreground: oklch(0.984 0.003 247.858);
+  --border: oklch(0.96 0.01 95 / 14%);
+  --input: oklch(0.96 0.01 95 / 18%);
+  --ring: oklch(0.85 0.16 90);
+  --chart-1: oklch(0.85 0.16 90);
+  --chart-2: oklch(0.7 0.14 250);
+  --chart-3: oklch(0.96 0.01 95);
+  --chart-4: oklch(0.7 0.13 75);
+  --chart-5: oklch(0.96 0.01 95);
+  --sidebar: oklch(0.29 0.06 258);
+  --sidebar-foreground: oklch(0.96 0.01 95);
+  --sidebar-primary: oklch(0.85 0.16 90);
+  --sidebar-primary-foreground: oklch(0.24 0.055 258);
+  --sidebar-accent: oklch(0.34 0.06 258);
+  --sidebar-accent-foreground: oklch(0.96 0.01 95);
+  --sidebar-border: oklch(0.96 0.01 95 / 14%);
+  --sidebar-ring: oklch(0.85 0.16 90);
+  --brand: oklch(0.96 0.01 95);
+  --brand-vif: oklch(0.7 0.14 250);
+  --accent-jaune: oklch(0.85 0.16 90);
+  --surface: oklch(0.29 0.06 258);
+  --muted-text: oklch(0.76 0.02 95);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+  }
+
+  ::selection {
+    background-color: var(--color-accent);
+    color: var(--color-accent-foreground);
+  }
+
+  /*
+   * Titres : Sora. Geometrique et large de forme, elle porte les capitales sans
+   * avoir besoin d'un axe de largeur. Reserve aux grandes tailles ; le corps de
+   * texte reste discret.
+   */
+  .type-display {
+    font-family: var(--font-display);
+    font-weight: 800;
+    text-transform: uppercase;
+    line-height: 0.95;
+    letter-spacing: -0.01em;
+  }
+
+  /*
+   * Sous-titres : Manrope. Le paragraphe d'accroche qui suit un titre, plus
+   * chaleureux qu'Inter sans concurrencer Sora.
+   */
+  .type-subtitle {
+    font-family: var(--font-subtitle);
+    font-weight: 500;
+    letter-spacing: -0.005em;
+  }
+
+  /*
+   * Surtitres et libelles de section. Manrope en capitales tres espacees : la
+   * meme voix de sous-titre, en plus petit.
+   */
+  .type-mark {
+    font-family: var(--font-subtitle);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+  }
+
+  /*
+   * Libelles d'action : boutons, liens de navigation. Meme famille et meme
+   * interlettrage partout, la taille seule distingue les niveaux.
+   */
+  .type-action {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+  }
+
+  /*
+   * Chiffres mesures : volumes, notes, prix, numeros d'etape. Meme famille que
+   * le reste — seuls les chiffres tabulaires les alignent en colonne.
+   */
+  .type-data {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Liseré jaune de l'enseigne : marque une jointure structurelle, jamais une décoration. */
+  .seam {
+    border-top: 3px solid var(--color-accent-jaune);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent-jaune);
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
